@@ -1,0 +1,636 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#0a0a14;
+  color:#e2e8f0;
+  overflow-x:hidden;
+}
+
+/* STARS */
+.stars{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(124,58,237,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(168,85,247,0.06) 0%, transparent 50%);
+}
+
+.stars::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 10%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 60%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 30%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 80%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 85%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 70%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(2px 2px at 85% 75%, rgba(192,132,252,0.8) 0%, transparent 100%),
+    radial-gradient(2px 2px at 5%  55%, rgba(192,132,252,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 38% 22%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 50%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 15% 35%, rgba(192,132,252,0.5) 0%, transparent 100%);
+}
+
+/* ORB DE FONDO */
+body::before{
+  content:'';
+  position:fixed;
+  width:500px; height:500px;
+  background:rgba(124,58,237,0.12);
+  border-radius:50%;
+  filter:blur(80px);
+  top:-100px; right:-100px;
+  pointer-events:none;
+  z-index:0;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  width:400px; height:400px;
+  background:rgba(168,85,247,0.08);
+  border-radius:50%;
+  filter:blur(80px);
+  bottom:-100px; left:-100px;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* NAVBAR */
+header{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(10,10,20,0.85);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(124,58,237,0.2);
+  z-index:1000;
+}
+
+.logo{
+  font-size:2rem;
+  font-weight:900;
+  letter-spacing:3px;
+  background:linear-gradient(135deg,#a855f7,#c084fc);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+nav a{
+  color:#94a3b8;
+  text-decoration:none;
+  margin-left:10px;
+  padding:6px 14px;
+  border-radius:6px;
+  font-size:.9rem;
+  transition:.3s;
+}
+
+nav a:hover{
+  color:#ffffff;
+  background:rgba(124,58,237,0.15);
+}
+
+nav a.active{
+  color:#c084fc;
+  font-weight:600;
+  background:rgba(124,58,237,0.2);
+  border-bottom:2px solid #a855f7;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  z-index:1;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.hero-eyebrow{
+  display:inline-block;
+  font-size:.75rem;
+  font-weight:600;
+  letter-spacing:3px;
+  color:#a855f7;
+  text-transform:uppercase;
+  border:1px solid rgba(168,85,247,0.3);
+  padding:.4rem 1.2rem;
+  border-radius:100px;
+  margin-bottom:2rem;
+}
+
+.hero h1{
+  font-size:clamp(5rem,15vw,10rem);
+  font-weight:900;
+  letter-spacing:-4px;
+  line-height:.9;
+  background:linear-gradient(135deg,#fff 30%,#c084fc 70%,#a855f7 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:1rem;
+}
+
+.hero h2{
+  font-size:clamp(1rem,2.5vw,1.4rem);
+  font-weight:300;
+  color:#94a3b8;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+
+.hero p{
+  max-width:600px;
+  margin:0 auto 2.5rem;
+  line-height:1.8;
+  color:#94a3b8;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:1rem 2.5rem;
+  background:linear-gradient(135deg,#7c3aed,#a855f7);
+  color:#ffffff;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:600;
+  font-size:.95rem;
+  transition:.3s ease;
+  box-shadow:0 0 30px rgba(124,58,237,0.4);
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 50px rgba(168,85,247,0.6);
+}
+
+/* PAGE HEADER */
+.page-header{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  padding:140px 10% 3rem;
+}
+
+.page-eyebrow{
+  display:inline-block;
+  font-size:.75rem;
+  font-weight:600;
+  letter-spacing:3px;
+  color:#a855f7;
+  text-transform:uppercase;
+  border:1px solid rgba(168,85,247,0.3);
+  padding:.4rem 1.2rem;
+  border-radius:100px;
+  margin-bottom:1.5rem;
+}
+
+.page-header h2{
+  font-size:clamp(2rem,5vw,3.5rem);
+  font-weight:900;
+  letter-spacing:-2px;
+  background:linear-gradient(135deg,#fff 40%,#c084fc);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* NOSOTROS */
+.about{
+  position:relative;
+  z-index:1;
+  padding:4rem 10% 6rem;
+  text-align:center;
+}
+
+.about h2{
+  font-size:3rem;
+  margin-bottom:2rem;
+  background:linear-gradient(135deg,#fff 40%,#c084fc);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.about p{
+  max-width:900px;
+  margin:0 auto;
+  line-height:2;
+  color:#94a3b8;
+}
+
+.about p strong{
+  color:#c084fc;
+  font-weight:600;
+}
+
+.about-stats{
+  display:flex;
+  gap:2rem;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:3rem;
+}
+
+.stat{
+  background:rgba(124,58,237,0.08);
+  border:1px solid rgba(124,58,237,0.2);
+  border-radius:16px;
+  padding:1.5rem 2rem;
+  text-align:center;
+  transition:.4s;
+}
+
+.stat:hover{
+  transform:translateY(-8px);
+  border-color:rgba(168,85,247,0.5);
+}
+
+.stat-num{
+  font-size:2.5rem;
+  font-weight:900;
+  background:linear-gradient(135deg,#a855f7,#c084fc);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.stat-label{
+  font-size:.85rem;
+  color:#94a3b8;
+  margin-top:.3rem;
+}
+
+/* EMPRESA */
+.empresa{
+  position:relative;
+  z-index:1;
+  padding:100px 10%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+}
+
+.empresa-header{
+  grid-column:1 / -1;
+  text-align:center;
+  padding-bottom:10px;
+}
+
+.empresa-header h2{
+  font-size:3rem;
+  font-weight:900;
+  letter-spacing:-2px;
+  background:linear-gradient(135deg,#fff 40%,#c084fc);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.card-empresa{
+  background:rgba(17,17,42,0.8);
+  backdrop-filter:blur(15px);
+  padding:2.5rem 2rem;
+  border-radius:16px;
+  border:1px solid rgba(124,58,237,0.2);
+  transition:.4s;
+}
+
+.card-empresa:hover{
+  transform:translateY(-8px);
+  border-color:rgba(168,85,247,0.5);
+}
+
+.card-empresa .card-icon{
+  font-size:2.5rem;
+  display:block;
+  margin-bottom:1rem;
+}
+
+.card-empresa h2{
+  margin-bottom:1rem;
+  font-size:1.4rem;
+  background:linear-gradient(135deg,#ffffff,#c084fc);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.card-empresa p{
+  color:#94a3b8;
+  line-height:1.8;
+  font-size:.95rem;
+}
+
+.card-empresa ul{
+  list-style:none;
+  margin-top:1rem;
+}
+
+.card-empresa li{
+  padding:.5rem 0;
+  color:#94a3b8;
+  font-size:.9rem;
+  border-bottom:1px solid rgba(124,58,237,0.1);
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+}
+
+.card-empresa li::before{
+  content:'▸';
+  color:#a855f7;
+  font-size:.75rem;
+}
+
+.card-empresa li:last-child{
+  border-bottom:none;
+}
+
+/* SERVICIOS */
+.services{
+  position:relative;
+  z-index:1;
+  padding:2rem 10% 4rem;
+  text-align:center;
+}
+
+.services h2{
+  font-size:3rem;
+  margin-bottom:1rem;
+  background:linear-gradient(135deg,#fff 40%,#c084fc);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* ==========================================================================
+   Estilos para las Tarjetas de Servicios e Imágenes
+   ========================================================================== */
+
+/* Contenedor general de las tarjetas (Asegura que se vean en cuadrícula limpia) */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Fuerza a que siempre sean exactamente 4 columnas */
+  gap: 1.5rem; /* Reducimos sutilmente el espacio para que respiren mejor en la misma línea */
+  padding: 2rem 0; /* Ajustamos padding lateral para maximizar el espacio útil */
+  max-width: 1400px; /* Ampliamos el ancho máximo para que quepan holgadamente las 4 */
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Estructura de cada tarjeta individual */
+.card {
+  background: rgba(255, 255, 255, 0.05); /* Fondo sutil si es un diseño oscuro tipo "stars" */
+  border-radius: 12px;
+  overflow: hidden; /* Esto hace que los bordes de la imagen se curven junto con la tarjeta */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover opcional para darle dinamismo */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor de la imagen: define la altura fija que quieres para el área visual */
+.service-image-container {
+  width: 100%;
+  height: 200px; /* Ajusta este valor si quieres imágenes más altas o bajas */
+  overflow: hidden;
+}
+
+/* La magia para que la imagen encaje perfectamente */
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Centra, recorta y adapta la imagen sin estirarla ni deformarla */
+  object-position: center; /* Asegura que el centro de la foto sea el protagonista */
+  transition: transform 0.5s ease;
+}
+
+/* Efecto visual: la imagen se acerca un poco cuando pasas el mouse por la tarjeta */
+.card:hover .service-img {
+  transform: scale(1.05);
+}
+
+/* Estilos de textos dentro de la tarjeta para mantener orden */
+.card h3 {
+  font-size: 1.4rem;
+  margin: 1.5rem 1rem 0.5rem 1rem;
+  font-weight: 600;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 1rem 1.5rem 1rem;
+  opacity: 0.8;
+  flex-grow: 1; /* Hace que el texto empuje hacia abajo equitativamente si tienen diferente longitud */
+}
+
+.cta-section{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  padding:1rem 10% 5rem;
+}
+
+.cta-section p{
+  color:#94a3b8;
+  margin-bottom:1.5rem;
+}
+
+/* CONTACTO */
+.contact{
+  position:relative;
+  z-index:1;
+  padding:2rem 10% 6rem;
+  text-align:center;
+}
+
+.contact h2{
+  font-size:3rem;
+  font-weight:900;
+  letter-spacing:-2px;
+  background:linear-gradient(135deg,#fff 40%,#c084fc);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:.8rem;
+}
+
+.contact .subtitle{
+  color:#94a3b8;
+  margin-bottom:2.5rem;
+  font-size:1rem;
+}
+
+.contact-form{
+  max-width:560px;
+  margin:0 auto;
+  background:rgba(17,17,42,0.8);
+  border:1px solid rgba(124,58,237,0.2);
+  border-radius:20px;
+  padding:3rem 2.5rem;
+  backdrop-filter:blur(10px);
+}
+
+.form-group{
+  margin-bottom:1.5rem;
+  text-align:left;
+}
+
+.form-group label{
+  display:block;
+  font-size:.8rem;
+  font-weight:600;
+  color:#94a3b8;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:.6rem;
+}
+
+input,
+textarea{
+  width:100%;
+  padding:15px;
+  border:1px solid rgba(124,58,237,0.2);
+  border-radius:10px;
+  background:rgba(10,10,20,0.6);
+  color:#e2e8f0;
+  font-family:'Poppins',sans-serif;
+  font-size:.95rem;
+  transition:.2s;
+  outline:none;
+}
+
+input:focus,
+textarea:focus{
+  border-color:#a855f7;
+  box-shadow:0 0 0 3px rgba(168,85,247,0.15);
+}
+
+textarea{
+  height:140px;
+  resize:vertical;
+}
+
+button{
+  width:100%;
+  padding:1rem 2rem;
+  background:linear-gradient(135deg,#7c3aed,#a855f7);
+  color:#ffffff;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-family:'Poppins',sans-serif;
+  font-weight:600;
+  font-size:1rem;
+  transition:.3s;
+  box-shadow:0 0 30px rgba(124,58,237,0.3);
+  margin-top:.5rem;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 50px rgba(168,85,247,0.5);
+}
+
+.success-msg{
+  display:none;
+  text-align:center;
+  margin-top:1.5rem;
+  color:#c084fc;
+  font-size:.95rem;
+  font-weight:600;
+}
+
+/* FOOTER */
+footer{
+  position:relative;
+  z-index:1;
+  padding:2.5rem;
+  text-align:center;
+  background:rgba(5,5,15,0.9);
+  border-top:1px solid rgba(124,58,237,0.15);
+}
+
+footer h3{
+  font-weight:900;
+  letter-spacing:3px;
+  background:linear-gradient(135deg,#a855f7,#c084fc);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:.5rem;
+}
+
+footer p{
+  color:#94a3b8;
+  font-size:.85rem;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  header{
+    padding:1rem 1.5rem;
+  }
+  nav a{
+    margin-left:0;
+    padding:.4rem .6rem;
+    font-size:.8rem;
+  }
+  .hero h1{
+    font-size:4rem;
+    letter-spacing:-2px;
+  }
+  .hero h2{
+    font-size:1.1rem;
+  }
+  .empresa{
+    padding:80px 5%;
+  }
+  .about,
+  .services,
+  .contact{
+    padding:4rem 5%;
+  }
+  .contact-form{
+    padding:2rem 1.5rem;
+  }
+  .about-stats{
+    gap:1rem;
+  }
+}
